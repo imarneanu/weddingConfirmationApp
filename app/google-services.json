@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "728442706957",
+    "firebase_url": "https://iuliaalexwedding.firebaseio.com",
+    "project_id": "iuliaalexwedding",
+    "storage_bucket": "iuliaalexwedding.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:728442706957:android:d3c9244455126080",
+        "android_client_info": {
+          "package_name": "com.imarneanu.alexiuliawedding"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "728442706957-g2fkb0inpgt0l50hkbnbkn0nct88ek2l.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.imarneanu.alexiuliawedding",
+            "certificate_hash": "e76f92bd2fd02b0f625fc5b4bad9831d1c847703"
+          }
+        },
+        {
+          "client_id": "728442706957-7qmlbv7315725jir54d184i4q1iqv5mo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBnxTvnv6rC5-21fV5nCd9ys_OJkI5osrg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "728442706957-7qmlbv7315725jir54d184i4q1iqv5mo.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
