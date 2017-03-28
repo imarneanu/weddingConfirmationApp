@@ -1,4 +1,4 @@
-package com.imarneanu.alexiuliawedding;
+package com.imarneanu.alexiuliawedding.services;
 
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.iid.FirebaseInstanceIdService;
