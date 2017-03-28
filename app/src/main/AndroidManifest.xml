@@ -17,7 +17,7 @@
             </intent-filter>
         </activity>
 
-        <service android:name=".DeleteTokenService"></service>
+        <service android:name=".DeleteTokenService" />
 
         <service android:name=".InstanceIdService">
             <intent-filter>
