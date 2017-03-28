@@ -22,25 +22,11 @@ public class DeleteTokenService extends IntentService {
     @Override
     protected void onHandleIntent(Intent intent) {
         try {
-            // Check for current token
-//            String originalToken = getTokenFromPrefs();
-//            Log.d(TAG, "Token before deletion: " + originalToken);
-
-            // Resets Instance ID and revokes all tokens.
             FirebaseInstanceId.getInstance().deleteInstanceId();
-
-            // Clear current saved token
-//            saveTokenToPrefs("");
-
-            // Check for success of empty token
-//            String tokenCheck = getTokenFromPrefs();
-//            Log.d(TAG, "Token deleted. Proof: " + tokenCheck);
-
-            // Now manually call onTokenRefresh()
             Log.d(TAG, "Getting new token");
             FirebaseInstanceId.getInstance().getToken();
         } catch (IOException e) {
-            e.printStackTrace();
+            Log.e(TAG, e.getMessage(), e);
         }
     }
 }

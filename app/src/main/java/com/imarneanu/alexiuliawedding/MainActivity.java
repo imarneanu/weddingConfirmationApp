@@ -1,5 +1,6 @@
 package com.imarneanu.alexiuliawedding;
 
+import com.imarneanu.alexiuliawedding.adapters.GuestAdapter;
 import com.imarneanu.alexiuliawedding.custom.EmptyLayout;
 import com.imarneanu.alexiuliawedding.data.DatabaseOperations;
 import com.imarneanu.alexiuliawedding.data.models.GuestModel;
@@ -8,9 +9,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -34,6 +35,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
+// TODO uncomment to generate new Firebase token
+//        Intent deleteTokenService = new Intent(this, DeleteTokenService.class);
+//        startService(deleteTokenService);
+
         // use a linear layout manager
         mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
@@ -44,13 +49,9 @@ public class MainActivity extends AppCompatActivity {
             return;
         }
 
-
-        // specify an adapter (see also next example)
-//        mAdapter = new MyAdapter(myDataset);
+        mAdapter = new GuestAdapter(mGuestsList);
         mRecyclerView.setAdapter(mAdapter);
-
-//        Intent deleteTokenService = new Intent(this, DeleteTokenService.class);
-//        startService(deleteTokenService);
+        mEmptyLayout.setVisibility(View.GONE);
     }
 
     private ArrayList<GuestModel> loadGuestFromDatabase() {

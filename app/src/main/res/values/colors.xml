@@ -6,4 +6,5 @@
 
     <color name="colorTextBlack">#000000</color>
     <color name="colorTextWhite">#FFFFFF</color>
+    <color name="colorGuestCard">#CCffffff</color>
 </resources>
