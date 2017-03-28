@@ -11,7 +11,7 @@ import com.imarneanu.alexiuliawedding.data.query.QueryGuests;
 import android.database.Cursor;
 
 public class GuestModel {
-    @SerializedName("id")
+    @SerializedName("guest")
     public String id;
     @SerializedName("name")
     public String name;

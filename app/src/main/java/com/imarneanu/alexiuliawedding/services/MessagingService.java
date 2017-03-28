@@ -2,6 +2,11 @@ package com.imarneanu.alexiuliawedding.services;
 
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
+import com.imarneanu.alexiuliawedding.data.DatabaseOperations;
+import com.imarneanu.alexiuliawedding.data.models.GuestModel;
 
 import android.app.Service;
 import android.content.Intent;
@@ -34,5 +39,8 @@ public class MessagingService extends FirebaseMessagingService {
 
         // Also if you intend on generating your own notifications as a result of a received FCM
         // message, here is where that should be initiated. See sendNotification method below.
+        Gson gson = new GsonBuilder().create();
+        GuestModel guest = gson.fromJson(remoteMessage.getData().toString(), GuestModel.class);
+        DatabaseOperations.insertGuest(getApplicationContext(), guest);
     }
 }
