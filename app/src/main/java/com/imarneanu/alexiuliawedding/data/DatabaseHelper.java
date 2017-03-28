@@ -18,7 +18,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     DatabaseContract.GuestEntry._ID + " INTEGER PRIMARY KEY," +
                     DatabaseContract.GuestEntry.COLUMN_NAME_GUEST_ID + " TEXT," +
                     DatabaseContract.GuestEntry.COLUMN_NAME_GUEST_NAME + " TEXT," +
-                    DatabaseContract.GuestEntry.COLUMN_NAME_TIMESTAMP + " TEXT)";
+                    DatabaseContract.GuestEntry.COLUMN_NAME_TIMESTAMP + " TEXT," +
+                    DatabaseContract.GuestEntry.COLUMN_NAME_COUNTER + " TEXT)";
 
     private static final String SQL_DELETE_GUESTS =
             "DROP TABLE IF EXISTS " + DatabaseContract.GuestEntry.TABLE_NAME;

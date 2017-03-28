@@ -18,5 +18,6 @@ public final class DatabaseContract {
         public static final String COLUMN_NAME_GUEST_ID = "guest_id";
         public static final String COLUMN_NAME_GUEST_NAME = "guest_name";
         public static final String COLUMN_NAME_TIMESTAMP = "timestamp";
+        public static final String COLUMN_NAME_COUNTER = "counter";
     }
 }
