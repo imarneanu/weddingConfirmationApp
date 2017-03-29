@@ -26,7 +26,7 @@ public class DatabaseOperations {
         GuestModel dbGuest = isGuestInDatabase(dbHelper, guest);
         if (dbGuest != null) {
             guest._id = dbGuest._id;
-            guest.counter = dbGuest.counter++;
+            guest.counter = ++dbGuest.counter;
             return updateGuest(dbHelper, guest);
         }
         return insertGuest(dbHelper, guest);
@@ -43,6 +43,7 @@ public class DatabaseOperations {
         values.put(DatabaseContract.GuestEntry.COLUMN_NAME_GUEST_ID, guest.guestId);
         values.put(DatabaseContract.GuestEntry.COLUMN_NAME_GUEST_NAME, guest.name);
         values.put(DatabaseContract.GuestEntry.COLUMN_NAME_TIMESTAMP, guest.timestamp);
+        values.put(DatabaseContract.GuestEntry.COLUMN_NAME_COUNTER, guest.counter);
         return values;
     }
 

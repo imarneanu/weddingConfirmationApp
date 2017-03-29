@@ -43,6 +43,12 @@ public class MainActivity extends AppCompatActivity {
         mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
 
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
         mGuestsList = loadGuestFromDatabase();
         if (mGuestsList.size() == 0) {
             mEmptyLayout.showEmpty();
