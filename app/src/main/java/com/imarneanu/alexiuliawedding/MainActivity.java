@@ -19,6 +19,9 @@ import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity {
 
+    @BindView(R.id.main_swipe_refresh_layout)
+    SwipeRefreshLayout mSwipeRefreshLayout;
+
     @BindView(R.id.main_recycler_view)
     RecyclerView mRecyclerView;
 
@@ -38,6 +41,10 @@ public class MainActivity extends AppCompatActivity {
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mAdapter = new GuestAdapter();
         mRecyclerView.setAdapter(mAdapter);
+        mSwipeRefreshLayout.setOnRefreshListener((() -> {
+            refreshContent();
+            mSwipeRefreshLayout.setRefreshing(false);
+        }));
     }
 
     @Override
