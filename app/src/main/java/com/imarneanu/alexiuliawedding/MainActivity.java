@@ -5,6 +5,7 @@ import com.imarneanu.alexiuliawedding.custom.EmptyLayout;
 import com.imarneanu.alexiuliawedding.data.DatabaseOperations;
 import com.imarneanu.alexiuliawedding.data.models.GuestModel;
 
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -24,8 +25,7 @@ public class MainActivity extends AppCompatActivity {
     @BindView(R.id.main_empty_layout)
     EmptyLayout mEmptyLayout;
 
-    private RecyclerView.Adapter mAdapter;
-    private RecyclerView.LayoutManager mLayoutManager;
+    private GuestAdapter mAdapter;
 
     private ArrayList<GuestModel> mGuestsList;
 
@@ -35,29 +35,26 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
-// TODO uncomment to generate new Firebase token
-//        Intent deleteTokenService = new Intent(this, DeleteTokenService.class);
-//        startService(deleteTokenService);
-
-        // use a linear layout manager
-        mLayoutManager = new LinearLayoutManager(this);
-        mRecyclerView.setLayoutManager(mLayoutManager);
-
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        mAdapter = new GuestAdapter();
+        mRecyclerView.setAdapter(mAdapter);
     }
 
     @Override
     protected void onResume() {
         super.onResume();
 
-        mGuestsList = loadGuestFromDatabase();
+        refreshContent();
         if (mGuestsList.size() == 0) {
             mEmptyLayout.showEmpty();
             return;
         }
-
-        mAdapter = new GuestAdapter(mGuestsList);
-        mRecyclerView.setAdapter(mAdapter);
         mEmptyLayout.setVisibility(View.GONE);
+    }
+
+    private void refreshContent() {
+        mGuestsList = loadGuestFromDatabase();
+        mAdapter.setGuests(mGuestsList);
     }
 
     private ArrayList<GuestModel> loadGuestFromDatabase() {

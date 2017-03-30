@@ -22,8 +22,14 @@ public class GuestAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
 
     private ArrayList<GuestModel> mGuests;
 
-    public GuestAdapter(ArrayList<GuestModel> guests) {
-        mGuests = guests;
+    public GuestAdapter() {
+        mGuests = new ArrayList<>(0);
+    }
+
+    public void setGuests(ArrayList<GuestModel> guests) {
+        mGuests.clear();
+        mGuests.addAll(guests);
+        notifyDataSetChanged();
     }
 
     @Override
