@@ -4,6 +4,7 @@ import com.imarneanu.alexiuliawedding.R;
 import com.imarneanu.alexiuliawedding.data.models.GuestModel;
 
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -42,9 +43,17 @@ public class GuestAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         GuestViewHolder guestViewHolder = (GuestViewHolder) holder;
-        guestViewHolder.guestName.setText(mGuests.get(position).name);
-        guestViewHolder.guestTimestamp.setText(mGuests.get(position).timestamp);
-        guestViewHolder.guestAccessedCounter.setText(String.valueOf(mGuests.get(position).counter));
+        GuestModel guest = mGuests.get(position);
+        guestViewHolder.guestName.setText(getGuestNames(guest));
+        guestViewHolder.guestTimestamp.setText(guest.timestamp);
+        guestViewHolder.guestAccessedCounter.setText(String.valueOf(guest.counter));
+    }
+
+    private String getGuestNames(GuestModel guest) {
+        if (TextUtils.isEmpty(guest.plusOneName)) {
+            return guest.guestName;
+        }
+        return guest.guestName.concat("&").concat(guest.plusOneName);
     }
 
     @Override

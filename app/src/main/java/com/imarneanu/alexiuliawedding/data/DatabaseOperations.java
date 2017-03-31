@@ -7,6 +7,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.text.TextUtils;
 
 import java.util.ArrayList;
 
@@ -26,7 +27,9 @@ public class DatabaseOperations {
         GuestModel dbGuest = isGuestInDatabase(dbHelper, guest);
         if (dbGuest != null) {
             guest._id = dbGuest._id;
-            guest.counter = ++dbGuest.counter;
+            if (TextUtils.isEmpty(guest.guestName)) {
+                guest.counter = ++dbGuest.counter;
+            }
             return updateGuest(dbHelper, guest);
         }
         return insertGuest(dbHelper, guest);
@@ -41,7 +44,10 @@ public class DatabaseOperations {
     private static ContentValues createGuestValues(GuestModel guest) {
         ContentValues values = new ContentValues();
         values.put(DatabaseContract.GuestEntry.COLUMN_NAME_GUEST_ID, guest.guestId);
-        values.put(DatabaseContract.GuestEntry.COLUMN_NAME_GUEST_NAME, guest.name);
+        values.put(DatabaseContract.GuestEntry.COLUMN_NAME_GUEST_NAME, guest.guestName);
+        values.put(DatabaseContract.GuestEntry.COLUMN_NAME_PLUS_ONE_NAME, guest.plusOneName);
+        values.put(DatabaseContract.GuestEntry.COLUMN_NAME_ACCOMMODATION_PERIOD, guest.accommodationPeriod);
+        values.put(DatabaseContract.GuestEntry.COLUMN_NAME_COMMENT, guest.comment);
         values.put(DatabaseContract.GuestEntry.COLUMN_NAME_TIMESTAMP, guest.timestamp);
         values.put(DatabaseContract.GuestEntry.COLUMN_NAME_COUNTER, guest.counter);
         return values;
