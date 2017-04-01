@@ -16,6 +16,8 @@ public class GuestModel {
     public String guestId;
     @SerializedName("guestName")
     public String guestName;
+    @SerializedName("attend")
+    public String attend;
     @SerializedName("plusOneName")
     public String plusOneName;
     @SerializedName("accommodationPeriod")
@@ -38,6 +40,7 @@ public class GuestModel {
         if (cursor.getColumnIndex(DatabaseContract.GuestEntry.COLUMN_NAME_GUEST_ID) != -1) {
             guestModel.guestId = cursor.getString(QueryGuests.GUEST_ID);
             guestModel.guestName = cursor.getString(QueryGuests.GUEST_NAME);
+            guestModel.attend = cursor.getString(QueryGuests.ATTEND);
             guestModel.plusOneName = cursor.getString(QueryGuests.PLUS_ONE_NAME);
             guestModel.accommodationPeriod = cursor.getString(QueryGuests.ACCOMMODATION_PERIOD);
             guestModel.comment = cursor.getString(QueryGuests.COMMENT);

@@ -15,8 +15,6 @@ import android.util.Log;
 
 import java.io.IOException;
 
-import static android.R.id.message;
-
 /**
  * Created by iulia on 24/03/2017.
  */

@@ -27,7 +27,7 @@ public class DatabaseOperations {
         GuestModel dbGuest = isGuestInDatabase(dbHelper, guest);
         if (dbGuest != null) {
             guest._id = dbGuest._id;
-            if (TextUtils.isEmpty(guest.guestName)) {
+            if (TextUtils.isEmpty(guest.attend)) {
                 guest.counter = ++dbGuest.counter;
             }
             return updateGuest(dbHelper, guest);
@@ -44,10 +44,14 @@ public class DatabaseOperations {
     private static ContentValues createGuestValues(GuestModel guest) {
         ContentValues values = new ContentValues();
         values.put(DatabaseContract.GuestEntry.COLUMN_NAME_GUEST_ID, guest.guestId);
-        values.put(DatabaseContract.GuestEntry.COLUMN_NAME_GUEST_NAME, guest.guestName);
-        values.put(DatabaseContract.GuestEntry.COLUMN_NAME_PLUS_ONE_NAME, guest.plusOneName);
-        values.put(DatabaseContract.GuestEntry.COLUMN_NAME_ACCOMMODATION_PERIOD, guest.accommodationPeriod);
-        values.put(DatabaseContract.GuestEntry.COLUMN_NAME_COMMENT, guest.comment);
+        values.put(DatabaseContract.GuestEntry.COLUMN_NAME_GUEST_NAME, guest.guestName == null
+                ? guest.guestId : guest.guestName);
+        if (guest.attend != null) {
+            values.put(DatabaseContract.GuestEntry.COLUMN_NAME_ATTEND, guest.attend);
+            values.put(DatabaseContract.GuestEntry.COLUMN_NAME_PLUS_ONE_NAME, guest.plusOneName);
+            values.put(DatabaseContract.GuestEntry.COLUMN_NAME_ACCOMMODATION_PERIOD, guest.accommodationPeriod);
+            values.put(DatabaseContract.GuestEntry.COLUMN_NAME_COMMENT, guest.comment);
+        }
         values.put(DatabaseContract.GuestEntry.COLUMN_NAME_TIMESTAMP, guest.timestamp);
         values.put(DatabaseContract.GuestEntry.COLUMN_NAME_COUNTER, guest.counter);
         return values;

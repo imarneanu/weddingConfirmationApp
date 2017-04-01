@@ -18,6 +18,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     DatabaseContract.GuestEntry._ID + " INTEGER PRIMARY KEY," +
                     DatabaseContract.GuestEntry.COLUMN_NAME_GUEST_ID + " TEXT," +
                     DatabaseContract.GuestEntry.COLUMN_NAME_GUEST_NAME + " TEXT," +
+                    DatabaseContract.GuestEntry.COLUMN_NAME_ATTEND + " TEXT," +
                     DatabaseContract.GuestEntry.COLUMN_NAME_PLUS_ONE_NAME + " TEXT," +
                     DatabaseContract.GuestEntry.COLUMN_NAME_ACCOMMODATION_PERIOD + " TEXT," +
                     DatabaseContract.GuestEntry.COLUMN_NAME_COMMENT + " TEXT," +
