@@ -19,6 +19,8 @@ public final class DatabaseContract {
         public static final String COLUMN_NAME_GUEST_NAME = "guest_name";
         public static final String COLUMN_NAME_ATTEND = "attend";
         public static final String COLUMN_NAME_PLUS_ONE_NAME = "plus_one_name";
+        public static final String COLUMN_NAME_ATTEND_CHURCH = "attend_church";
+        public static final String COLUMN_NAME_ATTEND_ONLY_CHURCH = "attend_only_church";
         public static final String COLUMN_NAME_ACCOMMODATION_PERIOD = "accommodation_period";
         public static final String COLUMN_NAME_COMMENT = "comment";
         public static final String COLUMN_NAME_TIMESTAMP = "timestamp";

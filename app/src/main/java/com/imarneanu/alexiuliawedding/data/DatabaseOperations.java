@@ -49,6 +49,8 @@ public class DatabaseOperations {
         if (guest.attend != null) {
             values.put(DatabaseContract.GuestEntry.COLUMN_NAME_ATTEND, guest.attend);
             values.put(DatabaseContract.GuestEntry.COLUMN_NAME_PLUS_ONE_NAME, guest.plusOneName);
+            values.put(DatabaseContract.GuestEntry.COLUMN_NAME_ATTEND_CHURCH, guest.attendChurch);
+            values.put(DatabaseContract.GuestEntry.COLUMN_NAME_ATTEND_ONLY_CHURCH, guest.attendOnlyChurch);
             values.put(DatabaseContract.GuestEntry.COLUMN_NAME_ACCOMMODATION_PERIOD, guest.accommodationPeriod);
             values.put(DatabaseContract.GuestEntry.COLUMN_NAME_COMMENT, guest.comment);
         }

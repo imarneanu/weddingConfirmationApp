@@ -18,6 +18,10 @@ public class GuestModel {
     public String guestName;
     @SerializedName("attend")
     public String attend;
+    @SerializedName("attendChurch")
+    public String attendChurch;
+    @SerializedName("attendOnlyChurch")
+    public String attendOnlyChurch;
     @SerializedName("plusOneName")
     public String plusOneName;
     @SerializedName("accommodationPeriod")
