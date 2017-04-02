@@ -22,7 +22,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     DatabaseContract.GuestEntry.COLUMN_NAME_PLUS_ONE_NAME + " TEXT," +
                     DatabaseContract.GuestEntry.COLUMN_NAME_ATTEND_CHURCH + " TEXT," +
                     DatabaseContract.GuestEntry.COLUMN_NAME_ATTEND_ONLY_CHURCH + " TEXT," +
-                    DatabaseContract.GuestEntry.COLUMN_NAME_ACCOMMODATION_PERIOD + " TEXT," +
+                    DatabaseContract.GuestEntry.COLUMN_NAME_ACCOMMODATION_START_DATE + " TEXT," +
+                    DatabaseContract.GuestEntry.COLUMN_NAME_ACCOMMODATION_END_DATE + " TEXT," +
                     DatabaseContract.GuestEntry.COLUMN_NAME_COMMENT + " TEXT," +
                     DatabaseContract.GuestEntry.COLUMN_NAME_TIMESTAMP + " TEXT," +
                     DatabaseContract.GuestEntry.COLUMN_NAME_COUNTER + " TEXT)";
