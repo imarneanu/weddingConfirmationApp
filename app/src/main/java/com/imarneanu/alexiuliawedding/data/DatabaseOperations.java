@@ -44,8 +44,9 @@ public class DatabaseOperations {
     private static ContentValues createGuestValues(GuestModel guest) {
         ContentValues values = new ContentValues();
         values.put(DatabaseContract.GuestEntry.COLUMN_NAME_GUEST_ID, guest.guestId);
-        values.put(DatabaseContract.GuestEntry.COLUMN_NAME_GUEST_NAME, guest.guestName == null
-                ? guest.guestId : guest.guestName);
+        if (!TextUtils.isEmpty(guest.guestName)) {
+            values.put(DatabaseContract.GuestEntry.COLUMN_NAME_GUEST_NAME, guest.guestName);
+        }
         if (guest.attend != null) {
             values.put(DatabaseContract.GuestEntry.COLUMN_NAME_ATTEND, guest.attend);
             values.put(DatabaseContract.GuestEntry.COLUMN_NAME_PLUS_ONE_NAME, guest.plusOneName);

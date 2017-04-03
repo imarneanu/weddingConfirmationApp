@@ -51,7 +51,10 @@ public class GuestAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
 
     private String getGuestNames(GuestModel guest) {
         if (TextUtils.isEmpty(guest.plusOneName)) {
-            return guest.guestName;
+            if (TextUtils.isEmpty(guest.guestName)) {
+                return guest.guestId;
+            }
+            return  guest.guestName;
         }
         return guest.guestName.concat("&").concat(guest.plusOneName);
     }
