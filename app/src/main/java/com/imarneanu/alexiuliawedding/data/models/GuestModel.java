@@ -18,12 +18,12 @@ public class GuestModel {
     public String guestName;
     @SerializedName("attend")
     public String attend;
+    @SerializedName("plusOneName")
+    public String plusOneName;
     @SerializedName("attendChurch")
     public String attendChurch;
     @SerializedName("attendOnlyChurch")
     public String attendOnlyChurch;
-    @SerializedName("plusOneName")
-    public String plusOneName;
     @SerializedName("accommodationStartDate")
     public String accommodationStartDate;
     @SerializedName("accommodationEndDate")
@@ -48,6 +48,8 @@ public class GuestModel {
             guestModel.guestName = cursor.getString(QueryGuests.GUEST_NAME);
             guestModel.attend = cursor.getString(QueryGuests.ATTEND);
             guestModel.plusOneName = cursor.getString(QueryGuests.PLUS_ONE_NAME);
+            guestModel.attendChurch = cursor.getString(QueryGuests.ATTEND_CHURCH);
+            guestModel.attendOnlyChurch = cursor.getString(QueryGuests.ATTEND_ONLY_CHURCH);
             guestModel.accommodationStartDate = cursor.getString(QueryGuests.ACCOMMODATION_START_DATE);
             guestModel.accommodationEndDate = cursor.getString(QueryGuests.ACCOMMODATION_END_DATE);
             guestModel.comment = cursor.getString(QueryGuests.COMMENT);
