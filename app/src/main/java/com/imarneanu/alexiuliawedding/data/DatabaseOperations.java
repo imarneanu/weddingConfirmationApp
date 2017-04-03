@@ -27,8 +27,9 @@ public class DatabaseOperations {
         GuestModel dbGuest = isGuestInDatabase(dbHelper, guest);
         if (dbGuest != null) {
             guest._id = dbGuest._id;
+            guest.counter = dbGuest.counter;
             if (TextUtils.isEmpty(guest.attend)) {
-                guest.counter = ++dbGuest.counter;
+                guest.counter++;
             }
             return updateGuest(dbHelper, guest);
         }
