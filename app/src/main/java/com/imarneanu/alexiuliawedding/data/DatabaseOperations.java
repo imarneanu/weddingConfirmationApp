@@ -17,7 +17,7 @@ import java.util.ArrayList;
 
 public class DatabaseOperations {
 
-    public static long addGuest(Context context, GuestModel guest) {
+    public static int addGuest(Context context, GuestModel guest) {
         DatabaseHelper dbHelper = new DatabaseHelper(context);
 
         if (guest.guestId.equals("standard")) {
@@ -36,10 +36,10 @@ public class DatabaseOperations {
         return insertGuest(dbHelper, guest);
     }
 
-    private static long insertGuest(DatabaseHelper dbHelper, GuestModel guest) {
+    private static int insertGuest(DatabaseHelper dbHelper, GuestModel guest) {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         ContentValues values = createGuestValues(guest);
-        return db.insert(DatabaseContract.GuestEntry.TABLE_NAME, null, values);
+        return (int) db.insert(DatabaseContract.GuestEntry.TABLE_NAME, null, values);
     }
 
     private static ContentValues createGuestValues(GuestModel guest) {
@@ -62,13 +62,14 @@ public class DatabaseOperations {
         return values;
     }
 
-    private static long updateGuest(DatabaseHelper dbHelper, GuestModel guest) {
+    private static int updateGuest(DatabaseHelper dbHelper, GuestModel guest) {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         String selection = DatabaseContract.GuestEntry._ID + " = ?";
         String[] selectionArgs = new String[]{String.valueOf(guest._id)};
 
         ContentValues values = createGuestValues(guest);
-        return db.update(DatabaseContract.GuestEntry.TABLE_NAME, values, selection, selectionArgs);
+        db.update(DatabaseContract.GuestEntry.TABLE_NAME, values, selection, selectionArgs);
+        return guest._id;
     }
 
     private static GuestModel isGuestInDatabase(DatabaseHelper dbHelper, GuestModel guest) {

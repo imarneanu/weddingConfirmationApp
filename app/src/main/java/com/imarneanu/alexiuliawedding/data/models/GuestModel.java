@@ -57,4 +57,8 @@ public class GuestModel {
         }
         return guestModel;
     }
+
+    public boolean isAttending() {
+        return Boolean.getBoolean(attend);
+    }
 }
